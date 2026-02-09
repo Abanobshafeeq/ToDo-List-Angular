@@ -1,1 +1,14 @@
-<p>task-card works!</p>
+<div class="card mb-3 task-card border-0 shadow-sm">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start">
+            <div>
+                <h5 class="card-title fw-bold mb-1">{{ task.title }}</h5>
+                <div class="actions">
+                    <button class="btn btn-sm btn-outline-primary me-2" (click)="editTask.emit(task)"><i class="bi bi-pencil-square"></i></button>
+                    <button class="btn btn-sm btn-outline-danger" (click)="deleteTask.emit(task.id)"><i class="bi bi-trash"></i></button>
+                </div>
+                <p class="card-text text-muted small mt-2">{{ task.description }}</p>
+        </div>
+
+    </div>
+</div>
