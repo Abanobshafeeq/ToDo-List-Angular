@@ -1,1 +1,35 @@
-<p>task-modal works!</p>
+<div class="modal fade" id="taskModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow">
+      
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title fw-bold">
+          {{ isEditMode ? 'Edit Task' : 'Add New Task' }}
+        </h5>
+        <button type="button" class="btn-close btn-close-white" (click)="close()"></button>
+      </div>
+      
+      <div class="modal-body">
+        <form (ngSubmit)="onSave()">
+          <div class="mb-3">
+            <label class="form-label fw-bold">Task Title</label>
+            <input type="text" class="form-control" [(ngModel)]="task.title" name="title" required placeholder="Enter task title">
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label fw-bold">Description</label>
+            <textarea class="form-control" rows="3" [(ngModel)]="task.description" name="description" placeholder="Enter details"></textarea>
+          </div>
+        </form>
+      </div>
+      
+      <div class="modal-footer bg-light">
+        <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
+        <button type="button" class="btn btn-primary px-4" (click)="onSave()">
+          {{ isEditMode ? 'Update' : 'Save' }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
