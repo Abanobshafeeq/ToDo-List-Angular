@@ -1,1 +1,87 @@
-<p>todo-board works!</p>
+<div class="container-fluid p-4 bg-light min-vh-100">
+  <div class="d-flex justify-content-center mb-4">
+    <button class="btn btn-primary shadow-sm">
+      <i class="bi bi-plus-lg me-2"></i> Add New Task
+    </button>
+  </div>
+  <div class="row" cdkDropListGroup>
+    <div class="col-md-4">
+      <div class="board-column bg-secondary-subtle rounded-3 p-3">
+        <h5
+          class="fw-bold mb-3 ps-2 border-start border-4 border-primary text-primary"
+        >
+          To Do
+          <span class="badge bg-white text-primary rounded-pill ms-2">{{
+            todo.length
+          }}</span>
+        </h5>
+        <div
+          cdkDropList
+          [cdkDropListData]="todo"
+          class="task-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <app-task-card
+            *ngFor="let task of todo"
+            [task]="task"
+            (deleteTask)="deleteTask(task.id)"
+            (editTask)="editTask(task)"
+            cdkDrag
+          ></app-task-card>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="board-column bg-warning-subtle rounded-3 p-3">
+        <h5
+          class="fw-bold mb-3 ps-2 border-start border-4 border-warning text-dark"
+        >
+          In Progress
+          <span class="badge bg-white text-warning rounded-pill ms-2">{{
+            inProgress.length
+          }}</span>
+        </h5>
+        <div
+          cdkDropList
+          [cdkDropListData]="inProgress"
+          class="task-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <app-task-card
+            *ngFor="let task of inProgress"
+            [task]="task"
+            (deleteTask)="deleteTask(task.id)"
+            (editTask)="editTask(task)"
+            cdkDrag
+          ></app-task-card>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="board-column bg-success-subtle rounded-3 p-3">
+        <h5
+          class="fw-bold mb-3 ps-2 border-start border-4 border-success text-success"
+        >
+          Done
+          <span class="badge bg-white text-success rounded-pill ms-2">{{
+            done.length
+          }}</span>
+        </h5>
+        <div
+          cdkDropList
+          [cdkDropListData]="done"
+          class="task-list"
+          (cdkDropListDropped)="drop($event)"
+        >
+          <app-task-card
+            *ngFor="let task of done"
+            [task]="task"
+            (deleteTask)="deleteTask(task.id)"
+            (editTask)="editTask(task)"
+            cdkDrag
+          ></app-task-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
