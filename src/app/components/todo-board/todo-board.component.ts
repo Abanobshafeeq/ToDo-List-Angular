@@ -27,8 +27,8 @@ export class TodoBoardComponent implements OnInit {
   @ViewChild(TaskModalComponent) taskModal!: TaskModalComponent;
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
   todo: ITask[] = [
-    { id: 3, title: 'Task 1', description: 'Description for Task 1  ' },
-    { id: 4, title: 'Task 2', description: 'Description for Task 2 ' },
+    // { id: 3, title: 'Task 1', description: 'Description for Task 1  ' },
+    // { id: 4, title: 'Task 2', description: 'Description for Task 2 ' },
   ];
   inProgress: ITask[] = [];
   done: ITask[] = [];
